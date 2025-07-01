@@ -72,29 +72,6 @@ const membershipPlans = [
 	},
 ];
 
-const testimonials = [
-	{
-		name: "Sarah Johnson",
-		role: "Fitness Enthusiast",
-		image: "/placeholder.svg?height=60&width=60",
-		rating: 5,
-		text: "This gym transformed my life! The trainers are amazing and the community is so supportive.",
-	},
-	{
-		name: "Mike Chen",
-		role: "Professional Athlete",
-		image: "/placeholder.svg?height=60&width=60",
-		rating: 5,
-		text: "Best gym in the city! State-of-the-art equipment and knowledgeable staff.",
-	},
-	{
-		name: "Emily Davis",
-		role: "Busy Professional",
-		image: "/placeholder.svg?height=60&width=60",
-		rating: 5,
-		text: "Flexible hours and amazing classes fit perfectly into my busy schedule.",
-	},
-];
 const Hero = () => {
         const [isVideoPlaying, setIsVideoPlaying] = useState(false)
         const [selectedPlan, setSelectedPlan] = useState("Premium")
@@ -115,56 +92,32 @@ const Hero = () => {
         }
       
         return (
-          <div className="relative min-h-screen overflow-hidden w-full ">
+          <div className="relative  overflow-hidden h-screen p-6 min-w-screen w-full ">
             {/* Background Image/Video */}
             <div className="absolute inset-0 z-0">
               <div className="relative w-full h-full">
                 <Image
-                  src="/placeholder.svg?height=1080&width=1920"
+                  src="/land.jpg?height=1080&width=1920"
                   alt="Gym background"
                   fill
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40" />
               </div>
             </div>
       
             {/* Main Hero Content */}
-            <div className="relative z-10 flex flex-col min-h-screen">
-              {/* Navigation Bar */}
-              <nav className="flex items-center justify-between p-6 lg:px-12">
-                <div className="flex items-center space-x-2">
-                  <Dumbbell className="w-8 h-8 text-red-500" />
-                  <span className="text-2xl font-bold text-white">FitZone</span>
-                </div>
-                <div className="hidden md:flex items-center space-x-8 text-white">
-                  <a href="#" className="hover:text-red-400 transition-colors">
-                    Classes
-                  </a>
-                  <a href="#" className="hover:text-red-400 transition-colors">
-                    Trainers
-                  </a>
-                  <a href="#" className="hover:text-red-400 transition-colors">
-                    Membership
-                  </a>
-                  <a href="#" className="hover:text-red-400 transition-colors">
-                    Contact
-                  </a>
-                </div>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black bg-transparent">
-                  Member Login
-                </Button>
-              </nav>
+            <div className="relative z-10 top-40 flex   flex-col ">
       
               {/* Hero Content */}
-              <div className="flex-1 flex items-center">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-                  <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className=" flex   ">
+                <div className="max-w-7xl  px-6  w-full">
+                  <div className=" gap-12 ">
                     {/* Left Column - Main Content */}
-                    <div className="text-white space-y-8">
+                    <div className="text-white space-y-12  ">
                       <div className="space-y-4">
-                        <Badge className="bg-red-500 text-white px-4 py-2 text-sm font-semibold">🔥 LIMITED TIME OFFER</Badge>
+                        
                         <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                           Transform Your
                           <span className="text-red-500 block">Body & Mind</span>
@@ -273,7 +226,7 @@ const Hero = () => {
                     </div>
       
                     {/* Right Column - Membership Plans */}
-                    <div className="lg:ml-8">
+                    {/* <div className="lg:ml-8">
                       <Card className="bg-white/95 backdrop-blur-sm">
                         <CardContent className="p-6">
                           <div className="text-center mb-6">
@@ -332,53 +285,12 @@ const Hero = () => {
                           </p>
                         </CardContent>
                       </Card>
-                    </div>
+                    </div> */}
+
                   </div>
                 </div>
               </div>
       
-              {/* Bottom Section - Testimonials */}
-              <div className="bg-black/50 backdrop-blur-sm py-8">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2">What Our Members Say</h3>
-                    <div className="flex items-center justify-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
-                      <span className="text-white ml-2">4.9/5 from 1,200+ reviews</span>
-                    </div>
-                  </div>
-      
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {testimonials.map((testimonial, index) => (
-                      <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20">
-                        <CardContent className="p-6">
-                          <div className="flex items-center gap-3 mb-4">
-                            <Image
-                              src={testimonial.image || "/placeholder.svg"}
-                              alt={testimonial.name}
-                              width={48}
-                              height={48}
-                              className="rounded-full"
-                            />
-                            <div>
-                              <h4 className="font-semibold text-white">{testimonial.name}</h4>
-                              <p className="text-sm text-gray-300">{testimonial.role}</p>
-                            </div>
-                          </div>
-                          <div className="flex gap-1 mb-3">
-                            {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                            ))}
-                          </div>
-                          <p className="text-gray-300 text-sm">{testimonial.text}</p>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
       
             {/* Video Modal */}
